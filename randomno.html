@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+  #x{
+    background-color: black;
+    width: 500px;
+    height: 20px;
+    color: white;
+    margin-top: 20px;
+  }
+  #b{
+    background-color: greenyellow;
+    width: 500px;
+    height: 100x;
+    margin-top: 20px;
+  }
+  #box1,#c{
+    background-color: blue;
+    width: 500px;
+    height: 50px;
+  }
+  body{
+    background-color: aqua;
+  }
+</style>
+</head>
+<body>
+    
+  <div id="box1">Result</div>
+  <input type="text" id="x" name="x" placeholder="Give your guessed no."><br>
+  <button id="b">Click here</button>
+  <p id="i"></p>
+  <p id="c">Number of chances taken: 0</p>
+  
+  <script>
+      let a = Math.floor((Math.random() * 100) + 1); // Generates a random number between 1 and 100
+      let c = 0; // Initial value of chances taken to guess a number
+      
+      let p = document.getElementById("box1");
+      let i = document.getElementById("i");
+      let b = document.getElementById("b");
+      let chances = document.getElementById("c");
+      
+      b.onclick = function () {
+          let x = Number(document.getElementById("x").value);
+          c = c + 1; // Increment the number of chances taken
+          
+          if (x > a) {
+              p.innerHTML = "Greater than the original number.";
+          } else if (x < a) {
+              p.innerHTML = "Smaller than the original number.";
+          } else {
+              p.innerHTML = "Matched at " + c + " chances!";
+              let img = document.createElement('img'); // Creating an image
+              img.src = 'https://media.istockphoto.com/id/1205312417/vector/yay-hand-lettering-text.jpg?s=612x612&w=0&k=20&c=yb0IbQb4e5ZZGa4VpFrBOS7ir2m1KY-f9oY7aw36KvY=';
+              i.appendChild(img);
+          }
+          
+          // Update the number of chances displayed
+          chances.innerHTML = "Number of chances taken: " + c;
+      };
+  </script>
+</body>
+</html>
+
+</body>
+</html>
